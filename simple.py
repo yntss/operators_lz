@@ -7,6 +7,7 @@ for i in range (2, int(chislo**0.5)+1):
         prostoe=True
     elif chislo % delitel ==0:
         prostoe=False
+        break
     delitel += 1
 if prostoe==True:
     print(f'Число {chislo} - Y')
