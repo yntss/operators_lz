@@ -1,15 +1,19 @@
 print('Данная программа проверяет, простое число или нет, если число простое, то вывод - Y, если составное, то - N')
-chislo = int(input('Введите число: '))
-delitel=2
-prostoe=True
-for i in range (2, int(chislo**0.5)+1):
-    if chislo % delitel !=0:
+chislo = int(input('Введите число (в диапазоне от 1 до 25): ')) #Ввод числа
+delitel=2 #Первоначальный делитель зададим равный 2
+prostoe=True #Изначально предположим что число простое
+if 1<=chislo<=25: 
+    if chislo == 1:
+        print('Число 1 не является ни составным ни простым') #Если число равно 1, то выводится данное сообщение
+    else:
         prostoe=True
-    elif chislo % delitel ==0:
-        prostoe=False
-        break
-    delitel += 1
-if prostoe==True:
-    print(f'Число {chislo} - Y')
-elif prostoe==False:
-    print(f'Число {chislo} - N')
+        for delitel in range (2, int(chislo**0.5)+1):
+            if chislo % delitel ==0:
+                prostoe=False
+                break  #Если находится число (делитель), который делит заданное число без остатка, то флаг простого числа сразу выставляется на False, цикл прерывается
+        if prostoe==True:
+            print(f'Число {chislo} - Y')
+        elif prostoe==False:
+            print(f'Число {chislo} - N')
+else:
+    print(f'Введёное число не входит в диапазон')    #Если число не входит в диапазон, то выводится данное сообщение
